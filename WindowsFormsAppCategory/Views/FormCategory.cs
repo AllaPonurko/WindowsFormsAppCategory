@@ -24,21 +24,31 @@ namespace WindowsFormsAppCategory
         static public DataCategory data = new DataCategory();
         public Category category;
         static public  DbContextCategories Db =new DbContextCategories();
+        
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            Form form = new Views.FormCreateCategory(this);
+            Form form = new Views.FormCreateCategory();
             form.Show();
         }
 
         private void btnUpdateListCat_Click(object sender, EventArgs e)
-        {if (data.NameCategory.Length!=0)
+        {
+            try
             {
-                category = new Category();
-                listBoxCategoties.Items.Add(data.NameCategory);
-                category.Name = data.NameCategory;
-                Db.Add(category);
+                if (data.NameCategory.Length != 0)
+                {
+                    category = new Category();
+                    listBoxCategoties.Items.Add(data.NameCategory);
+                    category.Name = data.NameCategory;
+                    Db.Categories.Add(category);
+                    
+                    data.NameCategory = null;
+                }
                 Db.SaveChanges();
-                data.NameCategory.Remove(data.NameCategory.Count());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -52,6 +62,43 @@ namespace WindowsFormsAppCategory
             if (Db != null)
                 foreach (var item in Db.Categories)
                     listBoxCategoties.Items.Add(item.ToString());
+        }
+
+        private void btnAddSubCategory_Click(object sender, EventArgs e)
+        {
+            if(listBoxCategoties.SelectedItem!=null)
+            {
+                Form form = new Views.FormCreateCategory();
+                form.Show();
+                
+            }
+        }
+
+        private void btnUpdateListSubCat_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                if(listBoxCategoties.SelectedItem!=null&& data.NameCategory.Length != 0)
+            {
+                category = new Category();
+                listBoxSubCategory.Items.Add(data.NameCategory);
+                category.Name = data.NameCategory;
+                foreach(var item in Db.Categories)
+                {
+                    if (listBoxCategoties.SelectedItem.ToString() == item.ToString())
+                        item.Categories.Add(category);
+                }
+                Db.Categories.Add(category);
+                data.NameCategory = null;
+            }
+                
+                Db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

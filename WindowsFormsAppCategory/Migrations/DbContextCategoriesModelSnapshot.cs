@@ -22,28 +22,13 @@ namespace WindowsFormsAppCategory.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid>("CategoryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("WindowsFormsAppCategory.Models.Category", b =>
-                {
-                    b.HasOne("WindowsFormsAppCategory.Models.Category", null)
-                        .WithMany("Categories")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

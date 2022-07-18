@@ -7,20 +7,30 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 using WindowsFormsAppCategory.Models;
+using Microsoft.Data.Sqlite;
 
 namespace WindowsFormsAppCategory.DbContextCategory
 {
     public class DbContextCategories:DbContext
     {
         public DbSet<Category> Categories { get; set; } 
-        public DbContextCategories() 
-        {
+        
+        //string connectionString = "Data Source = DatabaseCategory.db";
+
+        public DbContextCategories()
+        {  
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;
-                           Database=DB_Category.db;Trusted_Connection=True;"); 
+                           Database=DatabaseCategory.db;Trusted_Connection=True;");
+
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlite(connectionString);
+            
+        //}
     }
 }

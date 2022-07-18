@@ -119,6 +119,7 @@ namespace WindowsFormsAppCategory
             this.btnAddSubCategory.TabIndex = 10;
             this.btnAddSubCategory.Text = "Добавить подкатегорию";
             this.btnAddSubCategory.UseVisualStyleBackColor = true;
+            this.btnAddSubCategory.Click += new System.EventHandler(this.btnAddSubCategory_Click);
             // 
             // btnDeleteSubCategory
             // 
@@ -147,6 +148,7 @@ namespace WindowsFormsAppCategory
             this.btnUpdateListSubCat.TabIndex = 13;
             this.btnUpdateListSubCat.Text = "Обновить перечень";
             this.btnUpdateListSubCat.UseVisualStyleBackColor = true;
+            this.btnUpdateListSubCat.Click += new System.EventHandler(this.btnUpdateListSubCat_Click);
             // 
             // btnExit
             // 

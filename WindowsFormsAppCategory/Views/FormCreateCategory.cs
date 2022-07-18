@@ -17,10 +17,10 @@ namespace WindowsFormsAppCategory.Views
         {
             InitializeComponent();
         }
-        public FormCreateCategory(Form form)
-        {
-            InitializeComponent();
-        }
+        //public FormCreateCategory(Form form)
+        //{
+        //    InitializeComponent();
+        //}
         
         private void btnSaveCategory_Click(object sender, EventArgs e)
         {
