@@ -207,9 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbContextCategory\DbContextCategories.cs" />
-    <Compile Include="Migrations\20220717232643_category.cs" />
-    <Compile Include="Migrations\20220717232643_category.designer.cs">
-      <DependentUpon>20220717232643_category.cs</DependentUpon>
+    <Compile Include="Migrations\20220719212119_category.cs" />
+    <Compile Include="Migrations\20220719212119_category.designer.cs">
+      <DependentUpon>20220719212119_category.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\DbContextCategoriesModelSnapshot.cs" />
     <Compile Include="Models\Category.cs" />

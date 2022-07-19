@@ -51,9 +51,9 @@ namespace WindowsFormsAppCategory
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Главный каталог";
+            this.label1.Text = "Общий каталог";
             // 
             // btnCategory
             // 

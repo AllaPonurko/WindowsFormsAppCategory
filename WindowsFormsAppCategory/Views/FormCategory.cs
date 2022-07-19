@@ -173,7 +173,11 @@ namespace WindowsFormsAppCategory
             }
             Db.SaveChanges();
         }
-
+/// <summary>
+/// показать выборки
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox1.SelectedIndex==0)
@@ -181,6 +185,13 @@ namespace WindowsFormsAppCategory
                        where category.Categories.Count > 0
                        select category).ToList();
                 listBoxSelect.Items.AddRange(c.ToArray());
+            }
+            if(comboBox1.SelectedIndex==1)
+            {
+                //var c = (from category in Db.Categories
+                //         where category.Id == category.CategoryId
+                //         select category).ToList();
+                //listBoxSelect.Items.AddRange(c.ToArray());
             }
         }
     }
