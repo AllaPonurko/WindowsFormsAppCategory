@@ -182,7 +182,8 @@ namespace WindowsFormsAppCategory
 /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedIndex==0)
+            listBoxSelect.Items.Clear();
+            if (comboBox1.SelectedIndex==0)
             { var c = (from category in Db.Categories
                        where category.Categories.Count > 0
                        select category).ToList();
