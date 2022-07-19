@@ -42,6 +42,9 @@ namespace WindowsFormsAppCategory
             this.btnUpdateListCat = new System.Windows.Forms.Button();
             this.btnUpdateListSubCat = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.listBoxSelect = new System.Windows.Forms.ListBox();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -160,11 +163,39 @@ namespace WindowsFormsAppCategory
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // listBoxSelect
+            // 
+            this.listBoxSelect.FormattingEnabled = true;
+            this.listBoxSelect.Location = new System.Drawing.Point(527, 29);
+            this.listBoxSelect.Name = "listBoxSelect";
+            this.listBoxSelect.Size = new System.Drawing.Size(158, 303);
+            this.listBoxSelect.TabIndex = 15;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(527, 350);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(158, 23);
+            this.btnSelect.TabIndex = 16;
+            this.btnSelect.Text = "Выбрать";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(527, 380);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(158, 21);
+            this.comboBox1.TabIndex = 17;
+            // 
             // FormCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.listBoxSelect);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdateListSubCat);
             this.Controls.Add(this.btnUpdateListCat);
@@ -201,6 +232,9 @@ namespace WindowsFormsAppCategory
         private System.Windows.Forms.Button btnUpdateListCat;
         private System.Windows.Forms.Button btnUpdateListSubCat;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ListBox listBoxSelect;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
