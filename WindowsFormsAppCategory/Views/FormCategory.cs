@@ -173,5 +173,15 @@ namespace WindowsFormsAppCategory
             }
             Db.SaveChanges();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedIndex==0)
+            { var c = (from category in Db.Categories
+                       where category.Categories.Count > 0
+                       select category).ToList();
+                listBoxSelect.Items.AddRange(c.ToArray());
+            }
+        }
     }
 }

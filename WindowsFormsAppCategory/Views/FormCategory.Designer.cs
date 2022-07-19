@@ -38,7 +38,6 @@ namespace WindowsFormsAppCategory
             this.listBoxSubCategory = new System.Windows.Forms.ListBox();
             this.vScrollBar2 = new System.Windows.Forms.VScrollBar();
             this.btnAddSubCategory = new System.Windows.Forms.Button();
-            this.btnDeleteSubCategory = new System.Windows.Forms.Button();
             this.btnUpdateListCat = new System.Windows.Forms.Button();
             this.btnUpdateListSubCat = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
@@ -125,15 +124,6 @@ namespace WindowsFormsAppCategory
             this.btnAddSubCategory.UseVisualStyleBackColor = true;
             this.btnAddSubCategory.Click += new System.EventHandler(this.btnAddSubCategory_Click);
             // 
-            // btnDeleteSubCategory
-            // 
-            this.btnDeleteSubCategory.Location = new System.Drawing.Point(284, 413);
-            this.btnDeleteSubCategory.Name = "btnDeleteSubCategory";
-            this.btnDeleteSubCategory.Size = new System.Drawing.Size(171, 23);
-            this.btnDeleteSubCategory.TabIndex = 11;
-            this.btnDeleteSubCategory.Text = "Удалить подкатегорию";
-            this.btnDeleteSubCategory.UseVisualStyleBackColor = true;
-            // 
             // btnUpdateListCat
             // 
             this.btnUpdateListCat.Location = new System.Drawing.Point(16, 380);
@@ -184,10 +174,14 @@ namespace WindowsFormsAppCategory
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Показать основной каталог",
+            "Показать в выбранном каталоге подчинённые каталоги"});
             this.comboBox1.Location = new System.Drawing.Point(527, 380);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(158, 21);
             this.comboBox1.TabIndex = 17;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // FormCategory
             // 
@@ -200,7 +194,6 @@ namespace WindowsFormsAppCategory
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUpdateListSubCat);
             this.Controls.Add(this.btnUpdateListCat);
-            this.Controls.Add(this.btnDeleteSubCategory);
             this.Controls.Add(this.btnAddSubCategory);
             this.Controls.Add(this.vScrollBar2);
             this.Controls.Add(this.listBoxSubCategory);
@@ -229,7 +222,6 @@ namespace WindowsFormsAppCategory
         private System.Windows.Forms.ListBox listBoxSubCategory;
         private System.Windows.Forms.VScrollBar vScrollBar2;
         private System.Windows.Forms.Button btnAddSubCategory;
-        private System.Windows.Forms.Button btnDeleteSubCategory;
         private System.Windows.Forms.Button btnUpdateListCat;
         private System.Windows.Forms.Button btnUpdateListSubCat;
         private System.Windows.Forms.Button btnExit;
