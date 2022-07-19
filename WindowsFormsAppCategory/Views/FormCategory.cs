@@ -147,8 +147,7 @@ namespace WindowsFormsAppCategory
         /// <param name="e"></param>
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         { 
-            foreach(var item in Db.Categories)
-            {  if(listBoxCategoties.Items==null)
+            if(listBoxCategoties.Items==null)
                 {
                     MessageBox.Show("Нет каталога для удаления");
                 }
@@ -156,6 +155,9 @@ namespace WindowsFormsAppCategory
                 {
                     MessageBox.Show("Не выбран каталог для удаления");
                 }
+            foreach(var item in Db.Categories)
+            {  
+            
                if(listBoxCategoties.SelectedItem!=null
                     &&listBoxCategoties.SelectedItem.ToString()==item.ToString()&&
                     item.Categories.Count>0)
@@ -186,12 +188,16 @@ namespace WindowsFormsAppCategory
                        select category).ToList();
                 listBoxSelect.Items.AddRange(c.ToArray());
             }
-            if(comboBox1.SelectedIndex==1)
+            if (comboBox1.SelectedIndex == 1 && listBoxCategoties.SelectedItem == null)
+                MessageBox.Show("Не выбран каталог");
+                if (comboBox1.SelectedIndex==1&&listBoxCategoties.SelectedItem!=null)
             {
-                //var c = (from category in Db.Categories
-                //         where category.Id == category.CategoryId
-                //         select category).ToList();
-                //listBoxSelect.Items.AddRange(c.ToArray());
+                var c = (from category in Db.Categories
+                         where category.Name== listBoxCategoties.SelectedItem.ToString()
+                         select category).First();
+                var list = (from categories in c.Categories select categories).ToList();
+                listBoxSelect.Items.Clear();
+                listBoxSelect.Items.AddRange(list.ToArray());
             }
         }
     }

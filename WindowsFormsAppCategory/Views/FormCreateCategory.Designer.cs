@@ -32,6 +32,7 @@ namespace WindowsFormsAppCategory.Views
             this.label1 = new System.Windows.Forms.Label();
             this.txtNameCategory = new System.Windows.Forms.TextBox();
             this.btnSaveCategory = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,11 +61,22 @@ namespace WindowsFormsAppCategory.Views
             this.btnSaveCategory.UseVisualStyleBackColor = true;
             this.btnSaveCategory.Click += new System.EventHandler(this.btnSaveCategory_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(13, 142);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(100, 23);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Отменить";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FormCreateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(212, 177);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveCategory);
             this.Controls.Add(this.txtNameCategory);
             this.Controls.Add(this.label1);
@@ -80,5 +92,6 @@ namespace WindowsFormsAppCategory.Views
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNameCategory;
         private System.Windows.Forms.Button btnSaveCategory;
+        private System.Windows.Forms.Button btnCancel;
     }
 }
