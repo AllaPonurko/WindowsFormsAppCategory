@@ -16,8 +16,8 @@ namespace WindowsFormsAppCategory.Models
         [Required]
         public string Name { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid CategoryId { get; set; }
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public Guid CategoryId { get; set; }
         public ICollection<Category> Categories { get; set; }
         public Category()
         {

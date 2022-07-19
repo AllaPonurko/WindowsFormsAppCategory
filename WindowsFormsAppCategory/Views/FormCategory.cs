@@ -45,8 +45,11 @@ namespace WindowsFormsAppCategory
         private void btnUpdateListCat_Click(object sender, EventArgs e)
         {
             try
-            {
-                if (data.NameCategory.Length != 0)
+            { if(data.NameCategory == null)
+                {
+                    MessageBox.Show("Нет данных для обновления списка");
+                }
+                if (data.NameCategory != null)
                 {
                     category = new Category();
                     listBoxCategoties.Items.Add(data.NameCategory);
@@ -77,10 +80,18 @@ namespace WindowsFormsAppCategory
 /// <param name="sender"></param>
 /// <param name="e"></param>
         private void FormCategory_Load(object sender, EventArgs e)
-        {
-            if (Db != null)
+        {try
+            {
+              if (Db != null)
                 foreach (var item in Db.Categories)
+                { /*if(item.CategoryId==null)*/
                     listBoxCategoties.Items.Add(item.ToString());
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void btnAddSubCategory_Click(object sender, EventArgs e)
@@ -89,8 +100,11 @@ namespace WindowsFormsAppCategory
             {
                 Form form = new Views.FormCreateCategory();
                 form.Show();
-                
             }
+            if (listBoxCategoties.SelectedItem == null)
+                MessageBox.Show("Не выбрана основная категория");
+            if (listBoxCategoties.Items == null)
+                MessageBox.Show("Отсутствует каталог");
         }
         /// <summary>
         /// обновление перечня подчинённых категорий
@@ -102,7 +116,9 @@ namespace WindowsFormsAppCategory
             
             try
             {
-                if(listBoxCategoties.SelectedItem!=null&& data.NameCategory.Length != 0)
+                if (data.NameCategory == null)
+                    MessageBox.Show("Отсутствуют данные для обновления списка ");
+                if(listBoxCategoties.SelectedItem!=null&& data.NameCategory!= null)
             {
                 category = new Category();
                 listBoxSubCategory.Items.Add(data.NameCategory);
