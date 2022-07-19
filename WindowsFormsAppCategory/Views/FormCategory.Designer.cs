@@ -52,9 +52,9 @@ namespace WindowsFormsAppCategory
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Перечень категорий\r\n";
+            this.label1.Text = "Главный каталог";
             // 
             // btnCategory
             // 
@@ -74,6 +74,7 @@ namespace WindowsFormsAppCategory
             this.btnRemoveCategory.TabIndex = 4;
             this.btnRemoveCategory.Text = "Удалить категорию";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
             // listBoxCategoties
             // 

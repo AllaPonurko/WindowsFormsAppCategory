@@ -84,8 +84,9 @@ namespace WindowsFormsAppCategory
             {
               if (Db != null)
                 foreach (var item in Db.Categories)
-                { /*if(item.CategoryId==null)*/
-                    listBoxCategoties.Items.Add(item.ToString());
+                {
+                        if (item.Categories!= null)
+                            listBoxCategoties.Items.Add(item.ToString());
                 }
             } catch(Exception ex)
             {
@@ -138,6 +139,39 @@ namespace WindowsFormsAppCategory
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        /// <summary>
+        /// удаление категории
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemoveCategory_Click(object sender, EventArgs e)
+        { 
+            foreach(var item in Db.Categories)
+            {  if(listBoxCategoties.Items==null)
+                {
+                    MessageBox.Show("Нет каталога для удаления");
+                }
+            if(listBoxCategoties.SelectedItem==null)
+                {
+                    MessageBox.Show("Не выбран каталог для удаления");
+                }
+               if(listBoxCategoties.SelectedItem!=null
+                    &&listBoxCategoties.SelectedItem.ToString()==item.ToString()&&
+                    item.Categories.Count>0)
+                {
+                    MessageBox.Show("Выбранный каталог содержит подчинённые категории." +
+                        " Сначала удалите список подчинённых категорий!");
+                }
+               if(listBoxCategoties.SelectedItem != null
+                    &&listBoxCategoties.SelectedItem.ToString() == item.ToString() &&
+                    item.Categories.Count==0)
+                {
+                    Db.Categories.Remove(item);
+                    listBoxCategoties.Items.Remove(listBoxCategoties.SelectedItem);
+                }
+            }
+            Db.SaveChanges();
         }
     }
 }
